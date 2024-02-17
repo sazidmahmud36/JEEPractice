@@ -21,7 +21,17 @@ public class JdbcDeleteDemo {
             //before Delete
             System.out.println("After Deleting");
             
-            myRs = myStmt.executeQuery("DELETE FROM employees WHERE id=1");
+//            int rowsAffected = myStmt.executeUpdate("DELETE FROM employees WHERE id=10");
+            
+            myRs = myStmt.executeQuery("DELETE FROM employees WHERE first_name = 'Sazid'");
+//            displayEmployee(myConnection, "John", "Doe");
+            
+            
+            while(myRs.next()){
+                System.out.println("email : " + myRs.getString("email"));
+            }
+            
+            myCon.close();
             
             while(myRs.next()){
 //                System.out.println("first_name");
